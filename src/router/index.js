@@ -106,9 +106,18 @@ export const asyncRoutes = [
   }
 ]
 
+// for (let i = 1; i < 50; i++) {
+//   asyncRoutes[0].children.push({
+//     path: `flex${i}`,
+//     name: `Flex${i}`,
+//     component: () => import('@/views/example/flex'),
+//     meta: { title: `Flex布局${i}`, icon: 'form' }
+//   })
+// }
+console.log(process.env.VUE_APP_DEPLOY)
 const createRouter = () =>
   new Router({
-    mode: 'history', // require service support
+    mode: process.env.VUE_APP_DEPLOY === 'github' ? 'hash' : 'history', // require service support
     scrollBehavior(to, from, savedPosition) {
       if (savedPosition) {
         // 保持滚动位置不变-对于页面的滚动条

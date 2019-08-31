@@ -30,7 +30,6 @@ if (process.env.NODE_ENV === 'production') {
   mockXHR()
 }
 
-// set ElementUI lang to zh-CN
 Vue.use(ElementUI, { size: 'small' })
 
 // global mixin

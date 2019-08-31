@@ -1,11 +1,13 @@
 <template>
   <div id="tags-view-container" class="tags-view-container">
+    <div class="scroll-prev el-icon-d-arrow-left" @click="prevScreen" />
     <scroll-pane ref="scrollPane" class="tags-view-wrapper">
       <router-link v-for="tag in visitedViews" ref="tag" :key="tag.path" :class="isActive(tag)?'active':''" :to="{ path: tag.path, query: tag.query, fullPath: tag.fullPath }" tag="span" class="tags-view-item" @click.middle.native="closeSelectedTag(tag)" @contextmenu.prevent.native="openMenu(tag,$event)">
         {{ tag.title }}
         <span v-if="!tag.meta.affix" class="el-icon-close" @click.prevent.stop="closeSelectedTag(tag)" />
       </router-link>
     </scroll-pane>
+    <div class="scroll-next el-icon-d-arrow-right" @click="nextScreen" />
     <ul v-show="visible" :style="{left:left+'px',top:top+'px'}" class="contextmenu">
       <li @click="refreshSelectedTag(selectedTag)">刷新</li>
       <li v-if="!(selectedTag.meta&&selectedTag.meta.affix)" @click="closeSelectedTag(selectedTag)">关闭</li>
@@ -96,12 +98,22 @@ export default {
       }
       return false
     },
+    prevScreen() {
+      this.$nextTick(() => {
+        this.$refs.scrollPane.prevScreen(this.$refs.tag)
+      })
+    },
+    nextScreen() {
+      this.$nextTick(() => {
+        this.$refs.scrollPane.nextScreen(this.$refs.tag)
+      })
+    },
     moveToCurrentTag() {
       const tags = this.$refs.tag
       this.$nextTick(() => {
         for (const tag of tags) {
           if (tag.to.path === this.$route.path) {
-            this.$refs.scrollPane.moveToTarget(tag)
+            this.$refs.scrollPane.moveToTarget(tags, tag)
             // when query is different then update
             if (tag.to.fullPath !== this.$route.fullPath) {
               this.$store.dispatch('tagsView/updateVisitedView', this.$route)
@@ -183,12 +195,26 @@ export default {
 
 <style lang="scss" scoped>
 .tags-view-container {
+  display: flex;
   height: 35px;
   width: 100%;
   background: #fff;
-  .tags-view-wrapper {
+  .scroll-prev,
+  .scroll-next {
+    cursor: pointer;
+    display: inline-block;
+    background: #fff;
+    height: 31px;
+    line-height: 31px;
+    padding: 0 6px;
     border-bottom: 1px solid #d8dce5;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 0 3px 0 rgba(0, 0, 0, 0.04);
+    color: #999;
+    &:hover {
+      background: #f5f5f5;
+    }
+  }
+  .tags-view-wrapper {
     .tags-view-item {
       display: inline-block;
       position: relative;
@@ -206,10 +232,10 @@ export default {
       margin-left: 5px;
       margin-top: 4px;
       &:first-of-type {
-        margin-left: 15px;
+        margin-left: 10px;
       }
       &:last-of-type {
-        margin-right: 15px;
+        margin-right: 10px;
       }
       &.active {
         background-color: #42b983;
