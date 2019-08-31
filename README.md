@@ -28,7 +28,7 @@ yarn dev
 
 浏览器访问 [http://localhost:9528](http://localhost:9528)
 
-## 发布
+## 构建
 
 ```bash
 # 构建测试环境
@@ -66,4 +66,18 @@ yarn electron:serve
 # 打包生成桌面版
 npm run electron:build
 yarn electron:build
+
+```
+
+## 部署
+
+```bash
+# 部署到 github gh-pages
+npm run deploy:github
+yarn deploy:github
+
+# 部署到你的 git仓库 gh-pages
+# 需要创建配置一个 .env.prod 文件, 参考 .env.github
+npm run deploy:prod
+yarn deploy:prod
 ```

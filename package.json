@@ -16,8 +16,8 @@
     "preview": "node build/index.js --preview",
     "lint": "eslint --ext .js,.vue src",
     "lint:fix": "eslint --ext .js,.vue src --fix",
-    "github": "vue-cli-service build --mode github && gh-pages -d dist",
-    "deploy": "vue-cli-service build --mode deploy && gh-pages -d dist",
+    "deploy:github": "vue-cli-service build --mode github && gh-pages -d dist",
+    "deploy:prod": "vue-cli-service build --mode deploy && gh-pages -d dist",
     "svgo": "svgo -f src/icons/svg --config=src/icons/svgo.yml"
   },
   "main": "background.js",
