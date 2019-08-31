@@ -3,6 +3,8 @@
 - Veea 是 Vue+ElementUI+Electron+Admin 的单词缩写
 - 本项目基于 vue-element-admin 优化修改
 
+### 演示: [https://720t.github.io/veea/](https://720t.github.io/veea/)
+
 ## Build Setup
 
 ```bash
