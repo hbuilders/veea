@@ -101,19 +101,17 @@ export const asyncRoutes = [
         name: 'Flex',
         component: () => import('@/views/example/flex'),
         meta: { title: 'Flex布局', icon: 'form' }
+      },
+      {
+        path: 'scroll-nav',
+        name: 'ScrollNav',
+        component: () => import('@/views/example/scrollnav'),
+        meta: { title: 'scrollnav', icon: 'form' }
       }
     ]
   }
 ]
 
-// for (let i = 1; i < 50; i++) {
-//   asyncRoutes[0].children.push({
-//     path: `flex${i}`,
-//     name: `Flex${i}`,
-//     component: () => import('@/views/example/flex'),
-//     meta: { title: `Flex布局${i}`, icon: 'form' }
-//   })
-// }
 const createRouter = () =>
   new Router({
     mode: process.env.VUE_APP_DEPLOY === 'github' ? 'hash' : 'history', // require service support

@@ -15,6 +15,13 @@ const mockApi = {
       method: 'get',
       params
     })
+  },
+
+  scrollData() {
+    return request({
+      url: '/scroll/data',
+      method: 'get'
+    })
   }
 }
 

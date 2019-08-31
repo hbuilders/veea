@@ -37,6 +37,17 @@ const data = Mock.mock({
   ]
 })
 
+const group = Mock.mock({
+  items: () => {
+    return ['热门', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'].map(letter => {
+      return {
+        letter: letter,
+        content: '@cword(100, 3000)'
+      }
+    })
+  }
+})
+
 export default [
   {
     url: '/table/list',
@@ -67,7 +78,7 @@ export default [
     }
   },
   {
-    url: 'table/info',
+    url: '/table/info',
     type: 'get',
     response: config => {
       const items = data.items
@@ -75,6 +86,18 @@ export default [
         status: 0,
         data: {
           datarow: items[Math.floor(Math.random() * items.length)]
+        }
+      }
+    }
+  },
+  {
+    url: '/scroll/data',
+    type: 'get',
+    response: config => {
+      return {
+        status: 0,
+        data: {
+          dataset: group.items
         }
       }
     }
