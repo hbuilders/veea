@@ -114,7 +114,6 @@ export const asyncRoutes = [
 //     meta: { title: `Flex布局${i}`, icon: 'form' }
 //   })
 // }
-console.log(process.env.VUE_APP_DEPLOY)
 const createRouter = () =>
   new Router({
     mode: process.env.VUE_APP_DEPLOY === 'github' ? 'hash' : 'history', // require service support

@@ -2,7 +2,7 @@
   <div class="page-container">
     <div class="d-grow d-flex xy-center">
       <div ref="resize" class="resize-element">
-        调整大小
+        拖动改变我的大小
       </div>
     </div>
     <div class="page-footer">

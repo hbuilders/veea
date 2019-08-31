@@ -30,6 +30,7 @@
       <div>
         <ui-pager :pager="pager" @change="fetchData" />
       </div>
+      <div>横向滚动到最后,表格header 与 body 未对齐 bug => element-ui v2.12.0</div>
     </div>
   </div>
 </template>
