@@ -23,7 +23,7 @@ SOFTWARE.
 */
 
 'use strict'
-const start = canvas => {
+const WebGLFluid = canvas => {
   // const canvas = document.getElementsByTagName('canvas')[0]
   let config = {
     SIM_RESOLUTION: 128,
@@ -1639,4 +1639,4 @@ const start = canvas => {
   })
 }
 
-export { start }
+export { WebGLFluid }

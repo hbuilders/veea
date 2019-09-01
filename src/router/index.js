@@ -107,6 +107,12 @@ export const asyncRoutes = [
         name: 'ScrollNav',
         component: () => import('@/views/example/scrollnav'),
         meta: { title: 'scrollnav', icon: 'form' }
+      },
+      {
+        path: '404',
+        name: 'webGLFluid404',
+        component: () => import('@/views/404'),
+        meta: { title: '404', icon: 'form' }
       }
     ]
   }

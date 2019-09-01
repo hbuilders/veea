@@ -15,12 +15,12 @@
   </div>
 </template>
 <script>
-import { start } from '@/assets/js/fluid'
+import { WebGLFluid } from '@/assets/js/WebGLFluid'
 export default {
   name: 'Page404',
   mounted() {
     this.$nextTick(function() {
-      start(this.$refs.fluid)
+      WebGLFluid(this.$refs.fluid)
     })
   }
 }
