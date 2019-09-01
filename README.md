@@ -77,7 +77,7 @@ npm run deploy:github
 yarn deploy:github
 
 # 部署到你的 git仓库 gh-pages
-# 需要创建配置一个 .env.prod 文件, 参考 .env.github
+# 需要创建配置一个 .env.deploy 文件, 参考 .env.github
 npm run deploy:prod
 yarn deploy:prod
 ```

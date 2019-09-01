@@ -1,5 +1,13 @@
 <template>
   <div class="page-container">
+    <el-alert type="success">
+      <div class="lh20">
+        <div><b>使用 directive 实现的 scrollNav 功能</b></div>
+        <div>内容区域填充高度,以便最后一个node可以显示在顶部</div>
+        <div>导航区域可以横向,纵向布局,溢出滚动,这些都可以自行CSS控制,支持hover|click事件</div>
+        <div>导航node数与内容node数相等即可</div>
+      </div>
+    </el-alert>
     <div v-scrollNav:hover="20" class="scroll-panel">
       <div ref="scroll-to-container" class="scroll-body">
         <div v-for="(item, index) in dataset" :key="index" class="scroll-group scroll-to-flow">
@@ -12,6 +20,9 @@
       <div ref="scroll-to-navbar" class="scroll-navigation">
         <a v-for="(item, index) in letter" :key="index">{{ item }}</a>
       </div>
+    </div>
+    <div class="page-footer">
+      <div>使用方法后期补上</div>
     </div>
   </div>
 </template>
