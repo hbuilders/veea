@@ -1,149 +1,44 @@
 <template>
   <div class="wscn-http404-container">
+    <canvas ref="fluid" class="canvas" />
     <div class="wscn-http404">
-      <div class="pic-404">
-        <img class="pic-404__parent" src="@/assets/images/404.png" alt="404">
-        <img class="pic-404__child left" src="@/assets/images/404_cloud.png" alt="404">
-        <img class="pic-404__child mid" src="@/assets/images/404_cloud.png" alt="404">
-        <img class="pic-404__child right" src="@/assets/images/404_cloud.png" alt="404">
-      </div>
       <div class="bullshit">
-        <div class="bullshit__oops">OOPS!</div>
+        <div class="bullshit__oops">OOPS! <small>404</small></div>
         <div class="bullshit__headline">站长说这个页面不存在…</div>
         <div class="bullshit__info">请检查您输入的URL是否正确，或者单击下面的按钮返回主页。</div>
         <a href="/" class="bullshit__return-home">返回首页</a>
+        <div class="bullshit__info fs16"><b>在此放松放松</b></div>
+        <div class="bullshit__info mt5">试试 按 "空格键" 或者 "p键", 或者按住鼠标划拉划拉</div>
+        <div class="bullshit__info mt5">按 "s键", 保存</div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import { start } from '@/assets/js/fluid'
 export default {
-  name: 'Page404'
+  name: 'Page404',
+  mounted() {
+    this.$nextTick(function() {
+      start(this.$refs.fluid)
+    })
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .wscn-http404-container {
-  transform: translate(-50%, -50%);
-  position: absolute;
-  top: 40%;
-  left: 50%;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  .canvas {
+    width: 100%;
+    height: 100%;
+  }
   .wscn-http404 {
-    position: relative;
-    width: 1200px;
-    padding: 0 50px;
-    overflow: hidden;
-    .pic-404 {
-      position: relative;
-      float: left;
-      width: 600px;
-      overflow: hidden;
-      &__parent {
-        width: 100%;
-      }
-      &__child {
-        position: absolute;
-        &.left {
-          width: 80px;
-          top: 17px;
-          left: 220px;
-          opacity: 0;
-          animation-name: cloudLeft;
-          animation-duration: 2s;
-          animation-timing-function: linear;
-          animation-fill-mode: forwards;
-          animation-delay: 1s;
-        }
-        &.mid {
-          width: 46px;
-          top: 10px;
-          left: 420px;
-          opacity: 0;
-          animation-name: cloudMid;
-          animation-duration: 2s;
-          animation-timing-function: linear;
-          animation-fill-mode: forwards;
-          animation-delay: 1.2s;
-        }
-        &.right {
-          width: 62px;
-          top: 100px;
-          left: 500px;
-          opacity: 0;
-          animation-name: cloudRight;
-          animation-duration: 2s;
-          animation-timing-function: linear;
-          animation-fill-mode: forwards;
-          animation-delay: 1s;
-        }
-        @keyframes cloudLeft {
-          0% {
-            top: 17px;
-            left: 220px;
-            opacity: 0;
-          }
-          20% {
-            top: 33px;
-            left: 188px;
-            opacity: 1;
-          }
-          80% {
-            top: 81px;
-            left: 92px;
-            opacity: 1;
-          }
-          100% {
-            top: 97px;
-            left: 60px;
-            opacity: 0;
-          }
-        }
-        @keyframes cloudMid {
-          0% {
-            top: 10px;
-            left: 420px;
-            opacity: 0;
-          }
-          20% {
-            top: 40px;
-            left: 360px;
-            opacity: 1;
-          }
-          70% {
-            top: 130px;
-            left: 180px;
-            opacity: 1;
-          }
-          100% {
-            top: 160px;
-            left: 120px;
-            opacity: 0;
-          }
-        }
-        @keyframes cloudRight {
-          0% {
-            top: 100px;
-            left: 500px;
-            opacity: 0;
-          }
-          20% {
-            top: 120px;
-            left: 460px;
-            opacity: 1;
-          }
-          80% {
-            top: 180px;
-            left: 340px;
-            opacity: 1;
-          }
-          100% {
-            top: 200px;
-            left: 300px;
-            opacity: 0;
-          }
-        }
-      }
-    }
+    position: fixed;
+    top: 20%;
+    right: 50px;
     .bullshit {
       position: relative;
       float: left;
@@ -164,7 +59,7 @@ export default {
       &__headline {
         font-size: 20px;
         line-height: 24px;
-        color: #222;
+        color: #fff;
         font-weight: bold;
         opacity: 0;
         margin-bottom: 10px;
@@ -176,9 +71,8 @@ export default {
       &__info {
         font-size: 13px;
         line-height: 21px;
-        color: grey;
+        color: #fff;
         opacity: 0;
-        margin-bottom: 30px;
         animation-name: slideUp;
         animation-duration: 0.5s;
         animation-delay: 0.2s;
@@ -186,9 +80,9 @@ export default {
       }
       &__return-home {
         display: block;
-        float: left;
         width: 110px;
         height: 36px;
+        margin: 15px 0;
         background: #1482f0;
         border-radius: 100px;
         text-align: center;
