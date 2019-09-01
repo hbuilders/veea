@@ -9610,6 +9610,11 @@ type-is@~1.6.17, type-is@~1.6.18:
     media-typer "0.3.0"
     mime-types "~2.1.24"
 
+typed.js@^2.0.10:
+  version "2.0.10"
+  resolved "https://registry.npm.taobao.org/typed.js/download/typed.js-2.0.10.tgz#70a1c1ad11965923bc9e52f851d1891b0ca1316f"
+  integrity sha1-cKHBrRGWWSO8nlL4UdGJGwyhMW8=
+
 typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.npm.taobao.org/typedarray/download/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"

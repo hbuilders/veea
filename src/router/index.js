@@ -109,6 +109,12 @@ export const asyncRoutes = [
         meta: { title: 'scrollnav', icon: 'form' }
       },
       {
+        path: 'typing',
+        name: 'Typing',
+        component: () => import('@/views/example/typing'),
+        meta: { title: 'Typing', icon: 'form' }
+      },
+      {
         path: '404',
         name: 'webGLFluid404',
         component: () => import('@/views/404'),
