@@ -1,6 +1,6 @@
 import { debounce } from 'throttle-debounce'
 /**
- * @title 指令-ScrollTo
+ * @title 指令-scrollNav
  *
  * @author 黄先生 337805@qq.com
  * @description 实现滚动到锚点,滚动事件监听节点
@@ -101,7 +101,7 @@ const service = {
   }
 }
 
-const scrollSmooth = {
+const scrollNav = {
   componentUpdated(el, binding, vnode) {
     service.start(el, binding, vnode)
   },
@@ -111,14 +111,14 @@ const scrollSmooth = {
 }
 
 const install = function(Vue) {
-  Vue.directive('scrollTo', scrollTo)
+  Vue.directive('scrollNav', scrollNav)
 }
 
 if (window.Vue) {
-  window.scrollSmooth = scrollSmooth
+  window.scrollNav = scrollNav
   // eslint-disable-next-line no-undef
   Vue.use(install)
 }
 
-scrollSmooth.install = install
-export default scrollSmooth
+scrollNav.install = install
+export default scrollNav

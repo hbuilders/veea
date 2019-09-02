@@ -34,6 +34,7 @@ Vue.use(ElementUI, { size: 'small' })
 
 // global mixin
 Vue.mixin(Emiter)
+
 // global components
 Vue.component(UiPager.name, UiPager)
 Vue.component(UiDialog.name, UiDialog)
